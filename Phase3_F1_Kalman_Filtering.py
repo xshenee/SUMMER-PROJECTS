@@ -52,3 +52,23 @@ for i in range(1, n_laps):
 
 print("Raw Lap", round(lap_times[9], 2), "seconds")
 print("Filtered Lap", round(x_est[9], 2), "seconds")
+
+import matplotlib.pyplot as plt
+
+print("FIGURES:")
+
+plt.figure(figsize=(12, 6))
+
+plt.plot(lap_times, label='Raw Lap Times', linestyle='--', marker='o', alpha=0.5)
+
+plt.plot(x_est, label='Kalman Filtered True Pace', linewidth=2.5)
+
+plt.title('Hamilton Pace Estimates - Monaco 2023 Qualifying')
+plt.xlabel('Valid Lap Index')
+plt.ylabel('Lap Time (seconds)')
+plt.grid(True, linestyle=':', alpha=0.6)
+plt.legend()
+
+plt.savefig('hamilton_pace_estimate.png', dpi=300)
+
+plt.show()
